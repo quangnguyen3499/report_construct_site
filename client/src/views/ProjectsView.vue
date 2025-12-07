@@ -72,6 +72,9 @@
         >
           {{ sheetName }}
         </button>
+        <button @click="showAddSheetModal = true" class="tab-button tab-add" title="Thêm sheet mới">
+          +
+        </button>
       </div>
       
       <!-- Jspreadsheet Component -->
@@ -81,6 +84,7 @@
           :toolbar="toolbarConfig"
         >
           <Worksheet 
+            ref="worksheetRef"
             :data="spreadsheetData"
             :columns="spreadsheetColumns"
             :minDimensions="spreadsheetMinDimensions"
@@ -125,6 +129,24 @@
         </div>
       </div>
     </div>
+
+    <!-- Add Sheet Modal -->
+    <div v-if="showAddSheetModal" class="modal-overlay" @click="showAddSheetModal = false">
+      <div class="modal-content" @click.stop>
+        <h3>Thêm Sheet Mới</h3>
+        <input
+          v-model="newSheetName"
+          type="text"
+          placeholder="Tên sheet (ví dụ: Ghi chú, Chi tiết...)"
+          class="input-field"
+          @keyup.enter="addSheet"
+        />
+        <div class="modal-actions">
+          <button @click="addSheet" class="btn btn-primary">Thêm</button>
+          <button @click="showAddSheetModal = false" class="btn btn-secondary">Hủy</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -145,11 +167,41 @@ export default {
     const selectedProject = ref(null)
     const showCreateModal = ref(false)
     const newProjectName = ref('')
+    const showAddSheetModal = ref(false)
+    const newSheetName = ref('')
     const spreadsheetRef = ref(null)
+    const worksheetRef = ref(null)
     const currentSheet = ref('Vật liệu')
 
     // Sheet names matching Excel structure
-    const sheetNames = ['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp']
+    const sheetNames = ref(['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp'])
+
+    // Helper function to get the jspreadsheet instance
+    const getJspreadsheetInstance = () => {
+      if (!worksheetRef.value) {
+        console.error('worksheetRef not available')
+        return null
+      }
+      
+      const component = worksheetRef.value
+      
+      // Try multiple paths to find the jspreadsheet instance
+      if (component && component.jexcel) {
+        return component.jexcel
+      }
+      
+      if (component && component.$el && component.$el.jexcel) {
+        return component.$el.jexcel
+      }
+      
+      // Try to find it in the component's instance
+      if (component && component.instance) {
+        return component.instance
+      }
+      
+      console.error('jspreadsheet instance not found', { component, keys: Object.keys(component || {}) })
+      return null
+    }
 
     // Get column definitions for each sheet
     const getColumns = (sheetName) => {
@@ -356,9 +408,11 @@ export default {
     const editing = ref(true)
     const defaultColAlign = ref('left')
     const defaultColFormat = ref(null)
-    const mergeCells = ref([])
-    const nestedHeaders = ref([])
-    const pagination = ref({ pageSize: 100 })
+    // Some advanced options can cause rendering differences in the jspreadsheet wrapper
+    // Use conservative defaults so mock data renders correctly
+    const mergeCells = ref(null)
+    const nestedHeaders = ref(null)
+    const pagination = ref(false)
 
     // Toolbar configuration
     const toolbarConfig = computed(() => {
@@ -755,6 +809,40 @@ export default {
       }
     }
 
+    const addSheet = () => {
+      if (!newSheetName.value.trim()) {
+        alert('Vui lòng nhập tên sheet')
+        return
+      }
+      
+      if (!selectedProject.value) {
+        alert('Vui lòng chọn dự án trước')
+        return
+      }
+      
+      const sheetName = newSheetName.value.trim()
+      
+      // Check if sheet already exists
+      if (selectedProject.value.sheets && selectedProject.value.sheets[sheetName]) {
+        alert('Sheet này đã tồn tại')
+        return
+      }
+      
+      // Add new sheet with empty data
+      if (!selectedProject.value.sheets) {
+        selectedProject.value.sheets = {}
+      }
+      
+      selectedProject.value.sheets[sheetName] = { headers: [], data: [] }
+      sheetNames.value.push(sheetName)
+      
+      // Switch to the new sheet
+      currentSheet.value = sheetName
+      
+      showAddSheetModal.value = false
+      newSheetName.value = ''
+    }
+
     const deleteProject = async (id) => {
       if (!confirm('Bạn có chắc muốn xóa dự án này?')) return
       
@@ -771,41 +859,48 @@ export default {
     }
 
     const addRow = () => {
-      if (!spreadsheetRef.value) return
+      const jspreadsheet = getJspreadsheetInstance()
+      if (!jspreadsheet) {
+        alert('Lỗi: Không thể truy cập bảng tính')
+        return
+      }
       
       try {
-        const spreadsheet = spreadsheetRef.value.current
-        if (spreadsheet && spreadsheet.length > 0) {
-          spreadsheet[0].insertRow()
-        }
+        jspreadsheet.insertRow()
       } catch (error) {
         console.error('Error adding row:', error)
+        alert('Lỗi khi thêm dòng: ' + error.message)
       }
     }
 
     const deleteSelectedRows = () => {
-      if (!spreadsheetRef.value) return
+      const jspreadsheet = getJspreadsheetInstance()
+      if (!jspreadsheet) {
+        alert('Lỗi: Không thể truy cập bảng tính')
+        return
+      }
       
       try {
-        const spreadsheet = spreadsheetRef.value.current
-        if (spreadsheet && spreadsheet.length > 0) {
-          const selectedRows = spreadsheet[0].getSelectedRows()
-          if (selectedRows.length === 0) {
-            alert('Vui lòng chọn dòng cần xóa')
-            return
-          }
-          
-          if (!confirm(`Bạn có chắc muốn xóa ${selectedRows.length} dòng đã chọn?`)) {
-            return
-          }
-          
-          // Delete rows in reverse order to maintain indices
-          selectedRows.sort((a, b) => b - a).forEach(rowIndex => {
-            spreadsheet[0].deleteRow(rowIndex)
-          })
+        const selectedRows = jspreadsheet.getSelectedRows(true)
+        if (selectedRows.length === 0) {
+          alert('Vui lòng chọn dòng cần xóa')
+          return
         }
+        
+        if (!confirm(`Bạn có chắc muốn xóa ${selectedRows.length} dòng đã chọn?`)) {
+          return
+        }
+        
+        // Delete rows in reverse order to maintain indices
+        selectedRows.sort((a, b) => b - a).forEach(rowIndex => {
+          jspreadsheet.deleteRow(rowIndex)
+        })
+        
+        // Sync deleted data back to project state
+        saveCurrentSheetData()
       } catch (error) {
         console.error('Error deleting rows:', error)
+        alert('Lỗi khi xóa dòng: ' + error.message)
       }
     }
 
@@ -897,7 +992,10 @@ export default {
       selectedProject,
       showCreateModal,
       newProjectName,
+      showAddSheetModal,
+      newSheetName,
       spreadsheetRef,
+      worksheetRef,
       currentSheet,
       sheetNames,
       spreadsheetData,
@@ -926,6 +1024,7 @@ export default {
       selectSheet,
       saveProject,
       createProject,
+      addSheet,
       deleteProject,
       addRow,
       deleteSelectedRows,
@@ -1121,6 +1220,18 @@ export default {
   color: #667eea;
   border-bottom-color: #667eea;
   background: rgba(102, 126, 234, 0.05);
+}
+
+.tab-add {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-left: 0.5rem;
+}
+
+.tab-add:hover {
+  background: rgba(102, 126, 234, 0.15);
+  color: #764ba2;
 }
 
 .spreadsheet-wrapper {
