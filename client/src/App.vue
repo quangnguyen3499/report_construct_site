@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar">
       <div class="nav-container">
-        <h1 class="logo">🏗️ Hệ thống Báo cáo Xây dựng</h1>
+        <h1 class="logo">🏗️ Hệ thống thống kê xây dựng</h1>
         <div class="nav-links">
           <router-link to="/" class="nav-link">Dự án</router-link>
           <router-link to="/statistics" class="nav-link">Thống kê</router-link>

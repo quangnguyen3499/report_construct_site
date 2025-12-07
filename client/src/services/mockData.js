@@ -2,6 +2,8 @@
 // This allows testing without backend connection
 import * as XLSX from 'xlsx'
 
+const sheetNames = ['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp']
+
 const mockProjects = [
   {
     id: '1',
@@ -256,32 +258,162 @@ export default {
       throw new Error('Project not found')
     }
     
+    console.log('Exporting project:', project.name)
+    console.log('Project sheets:', Object.keys(project.sheets || {}))
+    
     // Generate Excel file using XLSX library
     const wb = XLSX.utils.book_new()
+    
+    // Define column mappings for each sheet type
+    const getSheetHeaders = (sheetName, firstRow) => {
+      if (!firstRow) return []
+      
+      switch (sheetName) {
+        case 'Vật liệu':
+          return ['STT', 'Mã hiệu', 'TT Vật tư', 'Vật liệu phụ', 'Tên vật tư', 
+                  'Đơn vị', 'Hệ số công tác', 'Nguồn mua', 'Khối lượng', 
+                  'Giá gốc', 'Thành tiền giá gốc', 'Giá thông báo', 'Thành tiền giá TB']
+        case 'Nhân công':
+          return ['STT', 'Mã hiệu', 'TT Nhân công', 'Tên nhân công', 
+                  'Đơn vị', 'Hệ số công tác', 'Khối lượng', 'Đơn giá', 'Thành tiền']
+        case 'Máy thi công':
+          return ['STT', 'Mã hiệu', 'TT Máy', 'Tên máy', 
+                  'Đơn vị', 'Hệ số công tác', 'Khối lượng', 'Đơn giá', 'Thành tiền']
+        case 'Tổng hợp':
+          return ['STT', 'NỘI DUNG CHI PHÍ', 'CÁCH TÍNH', 'GIÁ TRỊ', 'KÝ HIỆU']
+        default:
+          return Object.keys(firstRow)
+      }
+    }
     
     // Export all sheets
     if (project.sheets) {
       Object.keys(project.sheets).forEach(sheetName => {
         const sheet = project.sheets[sheetName]
         if (sheet.data && sheet.data.length > 0) {
-          const headers = sheet.headers && sheet.headers.length > 0 
-            ? sheet.headers 
-            : Object.keys(sheet.data[0])
+          // Get headers based on sheet type
+          const headers = getSheetHeaders(sheetName, sheet.data[0])
           
+          // Map field names to headers
+          const fieldMap = {
+            'Vật liệu': {
+              'STT': 'stt',
+              'Mã hiệu': 'maHieu',
+              'TT Vật tư': 'ttVatTu',
+              'Vật liệu phụ': 'vatLieuPhu',
+              'Tên vật tư': 'tenVatTu',
+              'Đơn vị': 'donVi',
+              'Hệ số công tác': 'heSoCongTac',
+              'Nguồn mua': 'nguonMua',
+              'Khối lượng': 'khoiLuong',
+              'Giá gốc': 'giaGoc',
+              'Thành tiền giá gốc': 'thanhTienGiaGoc',
+              'Giá thông báo': 'giaThongBao',
+              'Thành tiền giá TB': 'thanhTienGiaTB'
+            },
+            'Nhân công': {
+              'STT': 'stt',
+              'Mã hiệu': 'maHieu',
+              'TT Nhân công': 'ttNhanCong',
+              'Tên nhân công': 'tenNhanCong',
+              'Đơn vị': 'donVi',
+              'Hệ số công tác': 'heSoCongTac',
+              'Khối lượng': 'khoiLuong',
+              'Đơn giá': 'donGia',
+              'Thành tiền': 'thanhTien'
+            },
+            'Máy thi công': {
+              'STT': 'stt',
+              'Mã hiệu': 'maHieu',
+              'TT Máy': 'ttMay',
+              'Tên máy': 'tenMay',
+              'Đơn vị': 'donVi',
+              'Hệ số công tác': 'heSoCongTac',
+              'Khối lượng': 'khoiLuong',
+              'Đơn giá': 'donGia',
+              'Thành tiền': 'thanhTien'
+            },
+            'Tổng hợp': {
+              'STT': 'stt',
+              'NỘI DUNG CHI PHÍ': 'noiDungChiPhi',
+              'CÁCH TÍNH': 'cachTinh',
+              'GIÁ TRỊ': 'giaTri',
+              'KÝ HIỆU': 'kyHieu'
+            }
+          }
+          
+          const mapping = fieldMap[sheetName] || {}
+          
+          // Build sheet data with headers
           const sheetData = [headers]
-          sheet.data.forEach(row => {
-            const rowData = headers.map(header => row[header] !== undefined ? row[header] : '')
+          
+          sheet.data.forEach((row, index) => {
+            const rowData = headers.map(header => {
+              const fieldName = mapping[header] || header.toLowerCase()
+              let value = row[fieldName]
+              
+              // Calculate computed fields if needed
+              if (sheetName === 'Vật liệu') {
+                if (header === 'Thành tiền giá gốc' && (value === '' || value === null || value === undefined)) {
+                  const kl = parseFloat(row.khoiLuong) || 0
+                  const gia = parseFloat(row.giaGoc) || 0
+                  value = kl * gia
+                }
+                if (header === 'Thành tiền giá TB' && (value === '' || value === null || value === undefined)) {
+                  const kl = parseFloat(row.khoiLuong) || 0
+                  const gia = parseFloat(row.giaThongBao) || 0
+                  value = kl * gia
+                }
+              } else if (sheetName === 'Nhân công' || sheetName === 'Máy thi công') {
+                if (header === 'Thành tiền' && (value === '' || value === null || value === undefined)) {
+                  const kl = parseFloat(row.khoiLuong) || 0
+                  const gia = parseFloat(row.donGia) || 0
+                  value = kl * gia
+                }
+              }
+              
+              // Format numbers
+              if (typeof value === 'number') {
+                return value
+              }
+              
+              return value !== null && value !== undefined ? value : ''
+            })
             sheetData.push(rowData)
           })
           
           const ws = XLSX.utils.aoa_to_sheet(sheetData)
           XLSX.utils.book_append_sheet(wb, ws, sheetName)
+        } else {
+          // Create empty sheet with headers
+          const headers = getSheetHeaders(sheetName, {})
+          if (headers.length > 0) {
+            const ws = XLSX.utils.aoa_to_sheet([headers])
+            XLSX.utils.book_append_sheet(wb, ws, sheetName)
+          }
         }
       })
     }
     
+    // Check if workbook has any sheets
+    if (wb.SheetNames.length === 0) {
+      console.warn('No sheets to export, creating empty workbook with default sheets')
+      // Create empty sheets with headers for all sheet types
+      const allSheetNames = ['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp']
+      allSheetNames.forEach(sheetName => {
+        const headers = getSheetHeaders(sheetName, {})
+        if (headers.length > 0) {
+          const ws = XLSX.utils.aoa_to_sheet([headers])
+          XLSX.utils.book_append_sheet(wb, ws, sheetName)
+        }
+      })
+    }
+    
+    console.log('Workbook sheets:', wb.SheetNames)
+    
     // Generate buffer
     const buffer = XLSX.write(wb, { type: 'array', bookType: 'xlsx' })
+    console.log('Excel buffer size:', buffer.length, 'bytes')
     
     return { 
       data: new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })

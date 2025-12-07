@@ -8,3 +8,6 @@ server/data/
 dist/
 client/dist/
 .vite/
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md

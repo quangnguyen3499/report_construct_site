@@ -74,22 +74,37 @@
         </button>
       </div>
       
-      <!-- Grid -->
-      <div class="ag-theme-alpine grid-wrapper">
-        <ag-grid-vue
-          ref="gridRef"
-          :columnDefs="currentColumnDefs"
-          :rowData="currentGridData"
-          :defaultColDef="defaultColDef"
-          :enableRangeSelection="true"
-          :enableFillHandle="true"
-          :enableRangeHandle="true"
-          :suppressRowClickSelection="true"
-          :rowSelection="'multiple'"
-          @cell-value-changed="onCellValueChanged"
-          @selection-changed="onSelectionChanged"
-          style="height: 600px; width: 100%;"
-        />
+      <!-- Jspreadsheet Component -->
+      <div class="spreadsheet-wrapper">
+        <Spreadsheet 
+          ref="spreadsheetRef"
+          :toolbar="toolbarConfig"
+        >
+          <Worksheet 
+            :data="spreadsheetData"
+            :columns="spreadsheetColumns"
+            :minDimensions="spreadsheetMinDimensions"
+            :allowInsertRow="allowInsertRow"
+            :allowInsertColumn="allowInsertColumn"
+            :allowDeleteRow="allowDeleteRow"
+            :allowDeleteColumn="allowDeleteColumn"
+            :tableOverflow="true"
+            :tableWidth="'100%'"
+            :tableHeight="'600px'"
+            :columnSorting="columnSorting"
+            :columnResize="columnResize"
+            :rowDrag="rowDrag"
+            :selectionCopy="selectionCopy"
+            :filters="filters"
+            :contextMenu="contextMenu"
+            :editing="editing"
+            :defaultColAlign="defaultColAlign"
+            :defaultColFormat="defaultColFormat"
+            :mergeCells="mergeCells"
+            :nestedHeaders="nestedHeaders"
+            :pagination="pagination"
+          />
+        </Spreadsheet>
       </div>
     </div>
 
@@ -114,173 +129,81 @@
 </template>
 
 <script>
-import { ref, onMounted, computed, watch } from 'vue'
-import { AgGridVue } from 'ag-grid-vue3'
+import { ref, onMounted, computed, watch, nextTick } from 'vue'
+import { Spreadsheet, Worksheet } from '@jspreadsheet-ce/vue'
 import api from '../services/api'
 import * as XLSX from 'xlsx'
 
 export default {
   name: 'ProjectsView',
   components: {
-    AgGridVue
+    Spreadsheet,
+    Worksheet
   },
   setup() {
     const projects = ref([])
     const selectedProject = ref(null)
     const showCreateModal = ref(false)
     const newProjectName = ref('')
-    const gridRef = ref(null)
+    const spreadsheetRef = ref(null)
     const currentSheet = ref('Vật liệu')
-    const selectedRows = ref([])
 
     // Sheet names matching Excel structure
     const sheetNames = ['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp']
 
-    // Column definitions for each sheet
-    const getColumnDefs = (sheetName) => {
-      const baseNumericDef = {
-      type: 'numericColumn',
-      filter: 'agNumberColumnFilter',
-      valueParser: (params) => {
-        const value = params.newValue
-        if (value === null || value === undefined || value === '') {
-          return null
-        }
-        return parseFloat(value)
-        },
-        valueFormatter: (params) => {
-          if (params.value !== null && params.value !== undefined && params.value !== '') {
-            return new Intl.NumberFormat('vi-VN').format(params.value)
-          }
-          return ''
-        }
-      }
-
+    // Get column definitions for each sheet
+    const getColumns = (sheetName) => {
       switch (sheetName) {
         case 'Vật liệu':
           return [
-            { field: 'stt', headerName: 'STT', width: 80, editable: false, valueGetter: (params) => params.node.rowIndex + 1 },
-            { field: 'maHieu', headerName: 'Mã hiệu', width: 120, editable: true },
-            { field: 'ttVatTu', headerName: 'TT Vật tư', width: 100, editable: true, ...baseNumericDef },
-            { field: 'vatLieuPhu', headerName: 'Vật liệu phụ', width: 120, editable: true, ...baseNumericDef },
-            { field: 'tenVatTu', headerName: 'Tên vật tư', width: 250, editable: true },
-            { field: 'donVi', headerName: 'Đơn vị', width: 100, editable: true },
-            { field: 'heSoCongTac', headerName: 'Hệ số công tác', width: 130, editable: true, ...baseNumericDef },
-            { field: 'nguonMua', headerName: 'Nguồn mua', width: 180, editable: true },
-            { field: 'khoiLuong', headerName: 'Khối lượng', width: 120, editable: true, ...baseNumericDef },
-            { field: 'giaGoc', headerName: 'Giá gốc', width: 150, editable: true, ...baseNumericDef },
-            { 
-              field: 'thanhTienGiaGoc', 
-              headerName: 'Thành tiền giá gốc', 
-        width: 180,
-        editable: false,
-        valueGetter: (params) => {
-                const kl = parseFloat(params.data?.khoiLuong) || 0
-                const gia = parseFloat(params.data?.giaGoc) || 0
-                return kl * gia
-        },
-        valueFormatter: (params) => {
-          if (params.value) {
-            return new Intl.NumberFormat('vi-VN').format(params.value)
-          }
-          return ''
-        },
-        cellStyle: { fontWeight: 'bold' }
-      },
-            { field: 'giaThongBao', headerName: 'Giá thông báo', width: 150, editable: true, ...baseNumericDef },
-            { 
-              field: 'thanhTienGiaTB', 
-              headerName: 'Thành tiền giá TB', 
-              width: 180, 
-              editable: false,
-              valueGetter: (params) => {
-                const kl = parseFloat(params.data?.khoiLuong) || 0
-                const gia = parseFloat(params.data?.giaThongBao) || 0
-                return kl * gia
-              },
-              valueFormatter: (params) => {
-                if (params.value) {
-                  return new Intl.NumberFormat('vi-VN').format(params.value)
-                }
-                return ''
-              },
-              cellStyle: { fontWeight: 'bold' }
-            }
+            { title: 'STT', width: 80, type: 'numeric', readOnly: true },
+            { title: 'Mã hiệu', width: 120 },
+            { title: 'TT Vật tư', width: 100, type: 'numeric' },
+            { title: 'Vật liệu phụ', width: 120, type: 'numeric' },
+            { title: 'Tên vật tư', width: 250 },
+            { title: 'Đơn vị', width: 100 },
+            { title: 'Hệ số công tác', width: 130, type: 'numeric' },
+            { title: 'Nguồn mua', width: 180 },
+            { title: 'Khối lượng', width: 120, type: 'numeric' },
+            { title: 'Giá gốc', width: 150, type: 'numeric' },
+            { title: 'Thành tiền giá gốc', width: 180, type: 'numeric', readOnly: true },
+            { title: 'Giá thông báo', width: 150, type: 'numeric' },
+            { title: 'Thành tiền giá TB', width: 180, type: 'numeric', readOnly: true }
           ]
         
         case 'Nhân công':
           return [
-            { field: 'stt', headerName: 'STT', width: 80, editable: false, valueGetter: (params) => params.node.rowIndex + 1 },
-            { field: 'maHieu', headerName: 'Mã hiệu', width: 120, editable: true },
-            { field: 'ttNhanCong', headerName: 'TT Nhân công', width: 130, editable: true, ...baseNumericDef },
-            { field: 'tenNhanCong', headerName: 'Tên nhân công', width: 250, editable: true },
-            { field: 'donVi', headerName: 'Đơn vị', width: 100, editable: true },
-            { field: 'heSoCongTac', headerName: 'Hệ số công tác', width: 130, editable: true, ...baseNumericDef },
-            { field: 'khoiLuong', headerName: 'Khối lượng', width: 120, editable: true, ...baseNumericDef },
-            { field: 'donGia', headerName: 'Đơn giá', width: 150, editable: true, ...baseNumericDef },
-            { 
-              field: 'thanhTien', 
-              headerName: 'Thành tiền', 
-              width: 180, 
-              editable: false,
-              valueGetter: (params) => {
-                const kl = parseFloat(params.data?.khoiLuong) || 0
-                const gia = parseFloat(params.data?.donGia) || 0
-                return kl * gia
-              },
-              valueFormatter: (params) => {
-                if (params.value) {
-                  return new Intl.NumberFormat('vi-VN').format(params.value)
-                }
-                return ''
-              },
-              cellStyle: { fontWeight: 'bold' }
-            }
+            { title: 'STT', width: 80, type: 'numeric', readOnly: true },
+            { title: 'Mã hiệu', width: 120 },
+            { title: 'TT Nhân công', width: 130, type: 'numeric' },
+            { title: 'Tên nhân công', width: 250 },
+            { title: 'Đơn vị', width: 100 },
+            { title: 'Hệ số công tác', width: 130, type: 'numeric' },
+            { title: 'Khối lượng', width: 120, type: 'numeric' },
+            { title: 'Đơn giá', width: 150, type: 'numeric' },
+            { title: 'Thành tiền', width: 180, type: 'numeric', readOnly: true }
           ]
         
         case 'Máy thi công':
           return [
-            { field: 'stt', headerName: 'STT', width: 80, editable: false, valueGetter: (params) => params.node.rowIndex + 1 },
-            { field: 'maHieu', headerName: 'Mã hiệu', width: 120, editable: true },
-            { field: 'ttMay', headerName: 'TT Máy', width: 100, editable: true, ...baseNumericDef },
-            { field: 'tenMay', headerName: 'Tên máy', width: 250, editable: true },
-            { field: 'donVi', headerName: 'Đơn vị', width: 100, editable: true },
-            { field: 'heSoCongTac', headerName: 'Hệ số công tác', width: 130, editable: true, ...baseNumericDef },
-            { field: 'khoiLuong', headerName: 'Khối lượng', width: 120, editable: true, ...baseNumericDef },
-            { field: 'donGia', headerName: 'Đơn giá', width: 150, editable: true, ...baseNumericDef },
-            { 
-              field: 'thanhTien', 
-              headerName: 'Thành tiền', 
-              width: 180, 
-              editable: false,
-              valueGetter: (params) => {
-                const kl = parseFloat(params.data?.khoiLuong) || 0
-                const gia = parseFloat(params.data?.donGia) || 0
-                return kl * gia
-              },
-              valueFormatter: (params) => {
-                if (params.value) {
-                  return new Intl.NumberFormat('vi-VN').format(params.value)
-                }
-                return ''
-              },
-              cellStyle: { fontWeight: 'bold' }
-            }
+            { title: 'STT', width: 80, type: 'numeric', readOnly: true },
+            { title: 'Mã hiệu', width: 120 },
+            { title: 'TT Máy', width: 100, type: 'numeric' },
+            { title: 'Tên máy', width: 250 },
+            { title: 'Đơn vị', width: 100 },
+            { title: 'Hệ số công tác', width: 130, type: 'numeric' },
+            { title: 'Khối lượng', width: 120, type: 'numeric' },
+            { title: 'Đơn giá', width: 150, type: 'numeric' },
+            { title: 'Thành tiền', width: 180, type: 'numeric', readOnly: true }
           ]
         
         case 'Tổng hợp':
           return [
-            { field: 'stt', headerName: 'STT', width: 100, editable: true },
-            { field: 'noiDungChiPhi', headerName: 'NỘI DUNG CHI PHÍ', width: 300, editable: true },
-            { field: 'cachTinh', headerName: 'CÁCH TÍNH', width: 200, editable: true },
-            { 
-              field: 'giaTri', 
-              headerName: 'GIÁ TRỊ', 
-              width: 200, 
-              editable: true,
-              ...baseNumericDef
-            },
-            { field: 'kyHieu', headerName: 'KÝ HIỆU', width: 120, editable: true }
+            { title: 'STT', width: 100 },
+            { title: 'NỘI DUNG CHI PHÍ', width: 300 },
+            { title: 'CÁCH TÍNH', width: 200 },
+            { title: 'GIÁ TRỊ', width: 200, type: 'numeric' },
+            { title: 'KÝ HIỆU', width: 120 }
           ]
         
         default:
@@ -288,21 +211,438 @@ export default {
       }
     }
 
-    const currentColumnDefs = computed(() => getColumnDefs(currentSheet.value))
+    // Convert data to Jspreadsheet format (array of arrays)
+    const convertDataToSpreadsheet = (data) => {
+      if (!data || data.length === 0) {
+        return [[]]
+      }
+      
+      return data.map((row, index) => {
+        const rowArray = []
+        const columns = getColumns(currentSheet.value)
+        
+        columns.forEach((col, colIndex) => {
+          const fieldName = getFieldNameFromColumn(col.title)
+          let value = row[fieldName] !== undefined ? row[fieldName] : ''
+          
+          // Auto-calculate STT
+          if (col.title === 'STT') {
+            value = index + 1
+          }
+          
+          // Auto-calculate totals
+          if (currentSheet.value === 'Vật liệu') {
+            if (col.title === 'Thành tiền giá gốc') {
+              const kl = parseFloat(row.khoiLuong) || 0
+              const gia = parseFloat(row.giaGoc) || 0
+              value = kl * gia
+            } else if (col.title === 'Thành tiền giá TB') {
+              const kl = parseFloat(row.khoiLuong) || 0
+              const gia = parseFloat(row.giaThongBao) || 0
+              value = kl * gia
+            }
+          } else if (currentSheet.value === 'Nhân công' || currentSheet.value === 'Máy thi công') {
+            if (col.title === 'Thành tiền') {
+              const kl = parseFloat(row.khoiLuong) || 0
+              const gia = parseFloat(row.donGia) || 0
+              value = kl * gia
+            }
+          }
+          
+          rowArray.push(value)
+        })
+        
+        return rowArray
+      })
+    }
 
-    const currentGridData = computed(() => {
-      if (!selectedProject.value?.sheets?.[currentSheet.value]) {
+    // Convert spreadsheet data back to object format
+    const convertSpreadsheetToData = (spreadsheetData) => {
+      if (!spreadsheetData || spreadsheetData.length === 0) {
         return []
       }
-      return selectedProject.value.sheets[currentSheet.value].data || []
+      
+      const columns = getColumns(currentSheet.value)
+      return spreadsheetData.map((row, rowIndex) => {
+        const rowObj = {}
+        columns.forEach((col, colIndex) => {
+          const fieldName = getFieldNameFromColumn(col.title)
+          let value = row[colIndex] !== undefined ? row[colIndex] : ''
+          
+          // Skip STT (auto-calculated)
+          if (col.title === 'STT') {
+            return
+          }
+          
+          // Skip calculated fields
+          if (col.readOnly) {
+            return
+          }
+          
+          // Convert numeric values
+          if (col.type === 'numeric' && value !== '') {
+            value = parseFloat(value) || 0
+          }
+          
+          rowObj[fieldName] = value
+        })
+        return rowObj
+      })
+    }
+
+    // Map column title to field name
+    const getFieldNameFromColumn = (title) => {
+      const mapping = {
+        'STT': 'stt',
+        'Mã hiệu': 'maHieu',
+        'TT Vật tư': 'ttVatTu',
+        'Vật liệu phụ': 'vatLieuPhu',
+        'Tên vật tư': 'tenVatTu',
+        'Đơn vị': 'donVi',
+        'Hệ số công tác': 'heSoCongTac',
+        'Nguồn mua': 'nguonMua',
+        'Khối lượng': 'khoiLuong',
+        'Giá gốc': 'giaGoc',
+        'Thành tiền giá gốc': 'thanhTienGiaGoc',
+        'Giá thông báo': 'giaThongBao',
+        'Thành tiền giá TB': 'thanhTienGiaTB',
+        'TT Nhân công': 'ttNhanCong',
+        'Tên nhân công': 'tenNhanCong',
+        'Đơn giá': 'donGia',
+        'Thành tiền': 'thanhTien',
+        'TT Máy': 'ttMay',
+        'Tên máy': 'tenMay',
+        'NỘI DUNG CHI PHÍ': 'noiDungChiPhi',
+        'CÁCH TÍNH': 'cachTinh',
+        'GIÁ TRỊ': 'giaTri',
+        'KÝ HIỆU': 'kyHieu'
+      }
+      return mapping[title] || title.toLowerCase().replace(/\s+/g, '')
+    }
+
+    // Spreadsheet data
+    const spreadsheetData = computed(() => {
+      if (!selectedProject.value?.sheets?.[currentSheet.value]) {
+        return [[]]
+      }
+      
+      const sheetData = selectedProject.value.sheets[currentSheet.value].data || []
+      return convertDataToSpreadsheet(sheetData)
+    })
+    
+    // Spreadsheet columns
+    const spreadsheetColumns = computed(() => {
+      return getColumns(currentSheet.value)
+    })
+    
+    // Spreadsheet min dimensions
+    const spreadsheetMinDimensions = computed(() => {
+      const dataLength = spreadsheetData.value.length
+      const colsLength = spreadsheetColumns.value.length
+      return [Math.max(10, dataLength), colsLength]
     })
 
-    const defaultColDef = {
-      resizable: true,
-      sortable: true,
-      filter: true,
-      editable: true
-    }
+    // Additional spreadsheet options (expose a broad set of jspreadsheet options)
+    const allowInsertRow = ref(true)
+    const allowInsertColumn = ref(false)
+    const allowDeleteRow = ref(true)
+    const allowDeleteColumn = ref(false)
+    const columnSorting = ref(true)
+    const columnResize = ref(true)
+    const rowDrag = ref(false)
+    const selectionCopy = ref(true)
+    const filters = ref(true)
+    const contextMenu = ref(true)
+    const editing = ref(true)
+    const defaultColAlign = ref('left')
+    const defaultColFormat = ref(null)
+    const mergeCells = ref([])
+    const nestedHeaders = ref([])
+    const pagination = ref({ pageSize: 100 })
+
+    // Toolbar configuration
+    const toolbarConfig = computed(() => {
+      return {
+        items: [
+          {
+            content: 'save',
+            tooltip: 'Lưu dự án',
+            onclick: function() {
+              saveProject()
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            type: 'select',
+            width: '140px',
+            options: ['Arial', 'Calibri', 'Times New Roman', 'Courier New', 'Verdana'],
+            render: function(e) {
+              return '<span style="font-family:' + e + '">' + e + '</span>'
+            },
+            onchange: function(a, b, c, d) {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'font-family: ' + d
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'select',
+            width: '70px',
+            options: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24'],
+            render: function(e) {
+              return e + 'px'
+            },
+            onchange: function(a, b, c, d) {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'font-size: ' + d + 'px'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            type: 'i',
+            content: 'format_bold',
+            tooltip: 'Bold (Ctrl+B)',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'font-weight: bold'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'format_italic',
+            tooltip: 'Italic (Ctrl+I)',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'font-style: italic'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'format_underlined',
+            tooltip: 'Underline (Ctrl+U)',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'text-decoration: underline'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            type: 'i',
+            content: 'format_align_left',
+            tooltip: 'Align Left',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'text-align: left'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'format_align_center',
+            tooltip: 'Align Center',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'text-align: center'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'format_align_right',
+            tooltip: 'Align Right',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'text-align: right'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            type: 'i',
+            content: 'attach_money',
+            tooltip: 'Currency Format',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  const cell = spreadsheet[0].getCell(cellName)
+                  if (cell) {
+                    const value = parseFloat(cell.innerHTML) || 0
+                    spreadsheet[0].setValue(cellName, new Intl.NumberFormat('vi-VN', {
+                      style: 'currency',
+                      currency: 'VND'
+                    }).format(value))
+                  }
+                })
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'percent',
+            tooltip: 'Percent Format',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  const cell = spreadsheet[0].getCell(cellName)
+                  if (cell) {
+                    const value = parseFloat(cell.innerHTML) || 0
+                    spreadsheet[0].setValue(cellName, (value * 100).toFixed(2) + '%')
+                  }
+                })
+              }
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            type: 'i',
+            content: 'border_color',
+            tooltip: 'Border',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = 'border: 1px solid #000'
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            type: 'i',
+            content: 'content_copy',
+            tooltip: 'Copy (Ctrl+C)',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                spreadsheet[0].copy()
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'content_paste',
+            tooltip: 'Paste (Ctrl+V)',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                spreadsheet[0].paste()
+              }
+            }
+          },
+          {
+            type: 'i',
+            content: 'delete',
+            tooltip: 'Clear Format',
+            onclick: function() {
+              if (!spreadsheetRef.value) return
+              const spreadsheet = spreadsheetRef.value.current
+              if (spreadsheet && spreadsheet.length > 0) {
+                const styleChanges = {}
+                const cellNames = spreadsheet[0].getSelected(true)
+                cellNames.forEach(cellName => {
+                  styleChanges[cellName] = ''
+                })
+                spreadsheet[0].setStyle(styleChanges)
+              }
+            }
+          },
+          {
+            type: 'divisor'
+          },
+          {
+            content: 'file_download',
+            tooltip: 'Xuất Excel',
+            onclick: function() {
+              exportCurrentProject()
+            }
+          }
+        ]
+      }
+    })
 
     const getTotalItems = (project) => {
       if (!project.sheets) return 0
@@ -351,12 +691,31 @@ export default {
     }
 
     const selectSheet = (sheetName) => {
+      // Save current sheet data before switching
+      saveCurrentSheetData()
       currentSheet.value = sheetName
-      selectedRows.value = []
+    }
+
+    const saveCurrentSheetData = () => {
+      if (!spreadsheetRef.value || !selectedProject.value) return
+      
+      try {
+        const spreadsheet = spreadsheetRef.value.current
+        if (spreadsheet && spreadsheet.length > 0) {
+          const data = spreadsheet[0].getData()
+          const convertedData = convertSpreadsheetToData(data)
+          selectedProject.value.sheets[currentSheet.value].data = convertedData
+        }
+      } catch (error) {
+        console.error('Error saving sheet data:', error)
+      }
     }
 
     const saveProject = async () => {
       if (!selectedProject.value) return
+      
+      // Save current sheet before saving
+      saveCurrentSheetData()
       
       try {
         await api.updateProject(selectedProject.value.id, {
@@ -412,125 +771,48 @@ export default {
     }
 
     const addRow = () => {
-      if (!selectedProject.value?.sheets?.[currentSheet.value]) {
-        return
-      }
+      if (!spreadsheetRef.value) return
       
-      const emptyRow = getEmptyRowForSheet(currentSheet.value)
-      selectedProject.value.sheets[currentSheet.value].data.push(emptyRow)
-    }
-
-    const getEmptyRowForSheet = (sheetName) => {
-      switch (sheetName) {
-        case 'Vật liệu':
-          return {
-            stt: '',
-            maHieu: '',
-            ttVatTu: '',
-            vatLieuPhu: '',
-            tenVatTu: '',
-            donVi: '',
-            heSoCongTac: '',
-            nguonMua: '',
-            khoiLuong: '',
-            giaGoc: '',
-            thanhTienGiaGoc: '',
-            giaThongBao: '',
-            thanhTienGiaTB: ''
-          }
-        case 'Nhân công':
-          return {
-            stt: '',
-            maHieu: '',
-            ttNhanCong: '',
-            tenNhanCong: '',
-            donVi: '',
-            heSoCongTac: '',
-            khoiLuong: '',
-            donGia: '',
-            thanhTien: ''
-          }
-        case 'Máy thi công':
-          return {
-            stt: '',
-            maHieu: '',
-            ttMay: '',
-            tenMay: '',
-            donVi: '',
-            heSoCongTac: '',
-            khoiLuong: '',
-            donGia: '',
-            thanhTien: ''
-          }
-        case 'Tổng hợp':
-          return {
-            stt: '',
-            noiDungChiPhi: '',
-            cachTinh: '',
-            giaTri: '',
-            kyHieu: ''
-          }
-        default:
-          return {}
+      try {
+        const spreadsheet = spreadsheetRef.value.current
+        if (spreadsheet && spreadsheet.length > 0) {
+          spreadsheet[0].insertRow()
+        }
+      } catch (error) {
+        console.error('Error adding row:', error)
       }
     }
 
     const deleteSelectedRows = () => {
-      if (!gridRef.value || selectedRows.value.length === 0) {
-        alert('Vui lòng chọn dòng cần xóa')
-        return
+      if (!spreadsheetRef.value) return
+      
+      try {
+        const spreadsheet = spreadsheetRef.value.current
+        if (spreadsheet && spreadsheet.length > 0) {
+          const selectedRows = spreadsheet[0].getSelectedRows()
+          if (selectedRows.length === 0) {
+            alert('Vui lòng chọn dòng cần xóa')
+            return
+          }
+          
+          if (!confirm(`Bạn có chắc muốn xóa ${selectedRows.length} dòng đã chọn?`)) {
+            return
+          }
+          
+          // Delete rows in reverse order to maintain indices
+          selectedRows.sort((a, b) => b - a).forEach(rowIndex => {
+            spreadsheet[0].deleteRow(rowIndex)
+          })
+        }
+      } catch (error) {
+        console.error('Error deleting rows:', error)
       }
-      
-      if (!confirm(`Bạn có chắc muốn xóa ${selectedRows.value.length} dòng đã chọn?`)) {
-        return
-      }
-      
-      const selectedIndexes = selectedRows.value.map(row => 
-        selectedProject.value.sheets[currentSheet.value].data.indexOf(row)
-      ).sort((a, b) => b - a) // Sort descending to delete from end
-      
-      selectedIndexes.forEach(index => {
-        selectedProject.value.sheets[currentSheet.value].data.splice(index, 1)
-      })
-      
-      selectedRows.value = []
     }
 
     const backToList = () => {
+      saveCurrentSheetData()
       selectedProject.value = null
       currentSheet.value = 'Vật liệu'
-      selectedRows.value = []
-    }
-
-    const onCellValueChanged = (params) => {
-      // Auto-calculate totals
-      if (currentSheet.value === 'Vật liệu') {
-        if (params.colDef.field === 'khoiLuong' || params.colDef.field === 'giaGoc') {
-          params.api.refreshCells({
-            rowNodes: [params.node],
-            columns: ['thanhTienGiaGoc']
-          })
-        }
-        if (params.colDef.field === 'khoiLuong' || params.colDef.field === 'giaThongBao') {
-          params.api.refreshCells({
-            rowNodes: [params.node],
-            columns: ['thanhTienGiaTB']
-          })
-        }
-      } else if (currentSheet.value === 'Nhân công' || currentSheet.value === 'Máy thi công') {
-        if (params.colDef.field === 'khoiLuong' || params.colDef.field === 'donGia') {
-        params.api.refreshCells({
-          rowNodes: [params.node],
-            columns: ['thanhTien']
-          })
-        }
-      }
-    }
-
-    const onSelectionChanged = () => {
-      if (gridRef.value) {
-        selectedRows.value = gridRef.value.api.getSelectedRows()
-      }
     }
 
     const exportCurrentProject = async () => {
@@ -541,20 +823,30 @@ export default {
     const exportProject = async (projectId) => {
       try {
         const response = await api.exportToExcel(projectId)
-        const blob = new Blob([response.data], {
+        
+        // Handle both Blob (from mock) and ArrayBuffer/Blob (from axios)
+        let blob
+        if (response.data instanceof Blob) {
+          blob = response.data
+        } else {
+          blob = new Blob([response.data], {
           type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         })
+        }
+        
         const url = window.URL.createObjectURL(blob)
         const link = document.createElement('a')
         link.href = url
         
         const project = projects.value.find(p => p.id === projectId)
         link.download = `${project?.name || 'project'}_${Date.now()}.xlsx`
+        document.body.appendChild(link)
         link.click()
+        document.body.removeChild(link)
         window.URL.revokeObjectURL(url)
       } catch (error) {
         console.error('Error exporting project:', error)
-        alert('Lỗi khi xuất file Excel')
+        alert('Lỗi khi xuất file Excel: ' + (error.message || 'Unknown error'))
       }
     }
 
@@ -587,6 +879,15 @@ export default {
       return date.toLocaleDateString('vi-VN')
     }
 
+    // Watch for sheet changes to update spreadsheet
+    watch(currentSheet, () => {
+      nextTick(() => {
+        if (spreadsheetRef.value) {
+          // Spreadsheet will auto-update via computed property
+        }
+      })
+    })
+
     onMounted(() => {
       loadProjects()
     })
@@ -596,13 +897,30 @@ export default {
       selectedProject,
       showCreateModal,
       newProjectName,
-      gridRef,
+      spreadsheetRef,
       currentSheet,
       sheetNames,
-      currentColumnDefs,
-      currentGridData,
-      defaultColDef,
-      selectedRows,
+      spreadsheetData,
+      spreadsheetColumns,
+      spreadsheetMinDimensions,
+      toolbarConfig,
+      // Exposed spreadsheet option refs
+      allowInsertRow,
+      allowInsertColumn,
+      allowDeleteRow,
+      allowDeleteColumn,
+      columnSorting,
+      columnResize,
+      rowDrag,
+      selectionCopy,
+      filters,
+      contextMenu,
+      editing,
+      defaultColAlign,
+      defaultColFormat,
+      mergeCells,
+      nestedHeaders,
+      pagination,
       getTotalItems,
       selectProject,
       selectSheet,
@@ -612,8 +930,6 @@ export default {
       addRow,
       deleteSelectedRows,
       backToList,
-      onCellValueChanged,
-      onSelectionChanged,
       exportCurrentProject,
       exportProject,
       loadTemplate,
@@ -807,10 +1123,11 @@ export default {
   background: rgba(102, 126, 234, 0.05);
 }
 
-.grid-wrapper {
+.spreadsheet-wrapper {
   border: 1px solid #dee2e6;
   border-radius: 5px;
   overflow: hidden;
+  background: white;
 }
 
 .modal-overlay {
