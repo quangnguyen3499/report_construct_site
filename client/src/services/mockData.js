@@ -2,7 +2,7 @@
 // This allows testing without backend connection
 import * as XLSX from 'xlsx'
 
-const sheetNames = ['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp']
+const sheetNames = ['Vật liệu', 'Nhân công', 'Định Mức Xây Dựng', 'Máy thi công', 'Tổng hợp']
 
 const mockProjects = [
   {
@@ -82,6 +82,20 @@ const mockProjects = [
             khoiLuong: 100,
             donGia: 250000,
             thanhTien: 25000000
+          }
+        ]
+      },
+      'Định Mức Xây Dựng': {
+        headers: ['STT', 'Mã hiệu đơn giá', 'Mã hiệu VL, NC, M', 'Tên công tác', 'Đơn vị', 'Định mức', 'Loại'],
+        data: [
+          {
+            stt: 1,
+            maHieuDonGia: 'AA.11111',
+            maHieuVLNCM: '',
+            tenCongTac: 'Phát rừng tạo mặt bằng bằng thủ công - loại I',
+            donVi: '100m2',
+            dinhMuc: '',
+            loai: 'Công việc'
           }
         ]
       },
@@ -179,6 +193,7 @@ export default {
       sheets: data.sheets || {
         'Vật liệu': { headers: [], data: [] },
         'Nhân công': { headers: [], data: [] },
+        'Định Mức Xây Dựng': { headers: ['STT', 'Mã hiệu đơn giá', 'Mã hiệu VL, NC, M', 'Tên công tác', 'Đơn vị', 'Định mức', 'Loại'], data: [] },
         'Máy thi công': { headers: [], data: [] },
         'Tổng hợp': { headers: [], data: [] }
       }
@@ -281,6 +296,8 @@ export default {
                   'Đơn vị', 'Hệ số công tác', 'Khối lượng', 'Đơn giá', 'Thành tiền']
         case 'Tổng hợp':
           return ['STT', 'NỘI DUNG CHI PHÍ', 'CÁCH TÍNH', 'GIÁ TRỊ', 'KÝ HIỆU']
+        case 'Định Mức Xây Dựng':
+          return ['STT', 'Mã hiệu đơn giá', 'Mã hiệu VL, NC, M', 'Tên công tác', 'Đơn vị', 'Định mức', 'Loại']
         default:
           return Object.keys(firstRow)
       }
@@ -339,6 +356,15 @@ export default {
               'CÁCH TÍNH': 'cachTinh',
               'GIÁ TRỊ': 'giaTri',
               'KÝ HIỆU': 'kyHieu'
+            }
+            ,'Định Mức Xây Dựng': {
+              'STT': 'STT',
+              'Mã hiệu đơn giá': 'maHieuDonGia',
+              'Mã hiệu VL, NC, M': 'maHieuVLNCM',
+              'Tên công tác': 'tenCongTac',
+              'Đơn vị': 'donVi',
+              'Định mức': 'dinhMuc',
+              'Loại': 'loai'
             }
           }
           
@@ -399,7 +425,7 @@ export default {
     if (wb.SheetNames.length === 0) {
       console.warn('No sheets to export, creating empty workbook with default sheets')
       // Create empty sheets with headers for all sheet types
-      const allSheetNames = ['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp']
+      const allSheetNames = ['Vật liệu', 'Nhân công', 'Định Mức Xây Dựng', 'Máy thi công', 'Tổng hợp']
       allSheetNames.forEach(sheetName => {
         const headers = getSheetHeaders(sheetName, {})
         if (headers.length > 0) {

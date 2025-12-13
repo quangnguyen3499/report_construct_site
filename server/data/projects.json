@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1765046223518",
+    "name": "Nhà anh Lộc",
+    "createdAt": "2025-12-06T18:37:03.518Z",
+    "updatedAt": "2025-12-06T18:38:04.572Z",
+    "data": [
+      {
+        "material": "Gạch",
+        "unit": "Viên",
+        "quantity": 10,
+        "unitPrice": 100000,
+        "note": ""
+      },
+      {
+        "material": "",
+        "unit": "",
+        "quantity": "",
+        "unitPrice": "",
+        "note": ""
+      }
+    ]
+  }
+]

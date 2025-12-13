@@ -14,32 +14,19 @@
 
     <!-- Project List -->
     <div class="project-list" v-if="!selectedProject">
-      <div 
-        v-for="project in projects" 
-        :key="project.id"
-        class="project-card"
-        @click="selectProject(project)"
-      >
+      <div v-for="project in projects" :key="project.id" class="project-card" @click="selectProject(project)">
         <div class="project-info">
           <h3>{{ project.name }}</h3>
           <p class="project-meta">
-            {{ formatDate(project.createdAt) }} • 
+            {{ formatDate(project.createdAt) }} •
             {{ getTotalItems(project) }} mục
           </p>
         </div>
         <div class="project-actions">
-          <button 
-            @click.stop="exportProject(project.id)"
-            class="btn-icon"
-            title="Xuất Excel"
-          >
+          <button @click.stop="exportProject(project.id)" class="btn-icon" title="Xuất Excel">
             📊
           </button>
-          <button 
-            @click.stop="deleteProject(project.id)"
-            class="btn-icon btn-danger"
-            title="Xóa"
-          >
+          <button @click.stop="deleteProject(project.id)" class="btn-icon btn-danger" title="Xóa">
             🗑️
           </button>
         </div>
@@ -61,53 +48,29 @@
           <button @click="backToList" class="btn btn-secondary">← Quay lại</button>
         </div>
       </div>
-      
+
       <!-- Sheet Tabs -->
       <div class="sheet-tabs">
-        <button
-          v-for="sheetName in sheetNames"
-          :key="sheetName"
-          @click="selectSheet(sheetName)"
-          :class="['tab-button', { active: currentSheet === sheetName }]"
-        >
+        <button v-for="sheetName in sheetNames" :key="sheetName" @click="selectSheet(sheetName)"
+          :class="['tab-button', { active: currentSheet === sheetName }]">
           {{ sheetName }}
         </button>
         <button @click="showAddSheetModal = true" class="tab-button tab-add" title="Thêm sheet mới">
           +
         </button>
       </div>
-      
+
       <!-- Jspreadsheet Component -->
       <div class="spreadsheet-wrapper">
-        <Spreadsheet 
-          ref="spreadsheetRef"
-          :toolbar="toolbarConfig"
-        >
-          <Worksheet 
-            ref="worksheetRef"
-            :data="spreadsheetData"
-            :columns="spreadsheetColumns"
-            :minDimensions="spreadsheetMinDimensions"
-            :allowInsertRow="allowInsertRow"
-            :allowInsertColumn="allowInsertColumn"
-            :allowDeleteRow="allowDeleteRow"
-            :allowDeleteColumn="allowDeleteColumn"
-            :tableOverflow="true"
-            :tableWidth="'100%'"
-            :tableHeight="'600px'"
-            :columnSorting="columnSorting"
-            :columnResize="columnResize"
-            :rowDrag="rowDrag"
-            :selectionCopy="selectionCopy"
-            :filters="filters"
-            :contextMenu="contextMenu"
-            :editing="editing"
-            :defaultColAlign="defaultColAlign"
-            :defaultColFormat="defaultColFormat"
-            :mergeCells="mergeCells"
-            :nestedHeaders="nestedHeaders"
-            :pagination="pagination"
-          />
+        <Spreadsheet ref="spreadsheetRef" :toolbar="toolbarConfig">
+          <Worksheet ref="worksheetRef" :data="spreadsheetData" :columns="spreadsheetColumns"
+            :minDimensions="spreadsheetMinDimensions" :allowInsertRow="allowInsertRow"
+            :allowInsertColumn="allowInsertColumn" :allowDeleteRow="allowDeleteRow"
+            :allowDeleteColumn="allowDeleteColumn" :tableOverflow="true" :tableWidth="'100%'" :tableHeight="'600px'"
+            :columnSorting="columnSorting" :columnResize="columnResize" :rowDrag="rowDrag"
+            :selectionCopy="selectionCopy" :filters="filters" :contextMenu="contextMenu" :editing="editing"
+            :defaultColAlign="defaultColAlign" :defaultColFormat="defaultColFormat" :mergeCells="mergeCells"
+            :nestedHeaders="nestedHeaders" :pagination="pagination" />
         </Spreadsheet>
       </div>
     </div>
@@ -116,13 +79,8 @@
     <div v-if="showCreateModal" class="modal-overlay" @click="showCreateModal = false">
       <div class="modal-content" @click.stop>
         <h3>Tạo dự án mới</h3>
-        <input
-          v-model="newProjectName"
-          type="text"
-          placeholder="Tên dự án"
-          class="input-field"
-          @keyup.enter="createProject"
-        />
+        <input v-model="newProjectName" type="text" placeholder="Tên dự án" class="input-field"
+          @keyup.enter="createProject" />
         <div class="modal-actions">
           <button @click="createProject" class="btn btn-primary">Tạo</button>
           <button @click="showCreateModal = false" class="btn btn-secondary">Hủy</button>
@@ -134,13 +92,8 @@
     <div v-if="showAddSheetModal" class="modal-overlay" @click="showAddSheetModal = false">
       <div class="modal-content" @click.stop>
         <h3>Thêm Sheet Mới</h3>
-        <input
-          v-model="newSheetName"
-          type="text"
-          placeholder="Tên sheet (ví dụ: Ghi chú, Chi tiết...)"
-          class="input-field"
-          @keyup.enter="addSheet"
-        />
+        <input v-model="newSheetName" type="text" placeholder="Tên sheet (ví dụ: Ghi chú, Chi tiết...)"
+          class="input-field" @keyup.enter="addSheet" />
         <div class="modal-actions">
           <button @click="addSheet" class="btn btn-primary">Thêm</button>
           <button @click="showAddSheetModal = false" class="btn btn-secondary">Hủy</button>
@@ -174,7 +127,7 @@ export default {
     const currentSheet = ref('Vật liệu')
 
     // Sheet names matching Excel structure
-    const sheetNames = ref(['Vật liệu', 'Nhân công', 'Máy thi công', 'Tổng hợp'])
+    const sheetNames = ref(['Vật liệu', 'Nhân công', 'Định Mức Xây Dựng', 'Máy thi công', 'Tổng hợp'])
 
     // Helper function to get the jspreadsheet instance
     const getJspreadsheetInstance = () => {
@@ -182,23 +135,23 @@ export default {
         console.error('worksheetRef not available')
         return null
       }
-      
+
       const component = worksheetRef.value
-      
+
       // Try multiple paths to find the jspreadsheet instance
       if (component && component.jexcel) {
         return component.jexcel
       }
-      
+
       if (component && component.$el && component.$el.jexcel) {
         return component.$el.jexcel
       }
-      
+
       // Try to find it in the component's instance
       if (component && component.instance) {
         return component.instance
       }
-      
+
       console.error('jspreadsheet instance not found', { component, keys: Object.keys(component || {}) })
       return null
     }
@@ -222,7 +175,7 @@ export default {
             { title: 'Giá thông báo', width: 150, type: 'numeric' },
             { title: 'Thành tiền giá TB', width: 180, type: 'numeric', readOnly: true }
           ]
-        
+
         case 'Nhân công':
           return [
             { title: 'STT', width: 80, type: 'numeric', readOnly: true },
@@ -235,7 +188,7 @@ export default {
             { title: 'Đơn giá', width: 150, type: 'numeric' },
             { title: 'Thành tiền', width: 180, type: 'numeric', readOnly: true }
           ]
-        
+
         case 'Máy thi công':
           return [
             { title: 'STT', width: 80, type: 'numeric', readOnly: true },
@@ -248,7 +201,7 @@ export default {
             { title: 'Đơn giá', width: 150, type: 'numeric' },
             { title: 'Thành tiền', width: 180, type: 'numeric', readOnly: true }
           ]
-        
+
         case 'Tổng hợp':
           return [
             { title: 'STT', width: 100 },
@@ -257,7 +210,17 @@ export default {
             { title: 'GIÁ TRỊ', width: 200, type: 'numeric' },
             { title: 'KÝ HIỆU', width: 120 }
           ]
-        
+        case 'Định Mức Xây Dựng':
+          return [
+            { title: 'STT', width: 80, type: 'numeric', readOnly: true },
+            { title: 'Mã hiệu đơn giá', width: 150 },
+            { title: 'Mã hiệu VL, NC, M', width: 150 },
+            { title: 'Tên công tác', width: 400 },
+            { title: 'Đơn vị', width: 100 },
+            { title: 'Định mức', width: 150, type: 'numeric' },
+            { title: 'Loại', width: 120 }
+          ]
+
         default:
           return []
       }
@@ -268,20 +231,20 @@ export default {
       if (!data || data.length === 0) {
         return [[]]
       }
-      
+
       return data.map((row, index) => {
         const rowArray = []
         const columns = getColumns(currentSheet.value)
-        
+
         columns.forEach((col, colIndex) => {
           const fieldName = getFieldNameFromColumn(col.title)
           let value = row[fieldName] !== undefined ? row[fieldName] : ''
-          
+
           // Auto-calculate STT
           if (col.title === 'STT') {
             value = index + 1
           }
-          
+
           // Auto-calculate totals
           if (currentSheet.value === 'Vật liệu') {
             if (col.title === 'Thành tiền giá gốc') {
@@ -300,10 +263,10 @@ export default {
               value = kl * gia
             }
           }
-          
+
           rowArray.push(value)
         })
-        
+
         return rowArray
       })
     }
@@ -313,29 +276,29 @@ export default {
       if (!spreadsheetData || spreadsheetData.length === 0) {
         return []
       }
-      
+
       const columns = getColumns(currentSheet.value)
       return spreadsheetData.map((row, rowIndex) => {
         const rowObj = {}
         columns.forEach((col, colIndex) => {
           const fieldName = getFieldNameFromColumn(col.title)
           let value = row[colIndex] !== undefined ? row[colIndex] : ''
-          
+
           // Skip STT (auto-calculated)
           if (col.title === 'STT') {
             return
           }
-          
+
           // Skip calculated fields
           if (col.readOnly) {
             return
           }
-          
+
           // Convert numeric values
           if (col.type === 'numeric' && value !== '') {
             value = parseFloat(value) || 0
           }
-          
+
           rowObj[fieldName] = value
         })
         return rowObj
@@ -367,7 +330,12 @@ export default {
         'NỘI DUNG CHI PHÍ': 'noiDungChiPhi',
         'CÁCH TÍNH': 'cachTinh',
         'GIÁ TRỊ': 'giaTri',
-        'KÝ HIỆU': 'kyHieu'
+        'KÝ HIỆU': 'kyHieu',
+        'Mã hiệu đơn giá': 'maHieuDonGia',
+        'Mã hiệu VL, NC, M': 'maHieuVLNCM',
+        'Tên công tác': 'tenCongTac',
+        'Định mức': 'dinhMuc',
+        'Loại': 'loai'
       }
       return mapping[title] || title.toLowerCase().replace(/\s+/g, '')
     }
@@ -377,16 +345,16 @@ export default {
       if (!selectedProject.value?.sheets?.[currentSheet.value]) {
         return [[]]
       }
-      
+
       const sheetData = selectedProject.value.sheets[currentSheet.value].data || []
       return convertDataToSpreadsheet(sheetData)
     })
-    
+
     // Spreadsheet columns
     const spreadsheetColumns = computed(() => {
       return getColumns(currentSheet.value)
     })
-    
+
     // Spreadsheet min dimensions
     const spreadsheetMinDimensions = computed(() => {
       const dataLength = spreadsheetData.value.length
@@ -421,7 +389,7 @@ export default {
           {
             content: 'save',
             tooltip: 'Lưu dự án',
-            onclick: function() {
+            onclick: function () {
               saveProject()
             }
           },
@@ -432,10 +400,10 @@ export default {
             type: 'select',
             width: '140px',
             options: ['Arial', 'Calibri', 'Times New Roman', 'Courier New', 'Verdana'],
-            render: function(e) {
+            render: function (e) {
               return '<span style="font-family:' + e + '">' + e + '</span>'
             },
-            onchange: function(a, b, c, d) {
+            onchange: function (a, b, c, d) {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -452,10 +420,10 @@ export default {
             type: 'select',
             width: '70px',
             options: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24'],
-            render: function(e) {
+            render: function (e) {
               return e + 'px'
             },
-            onchange: function(a, b, c, d) {
+            onchange: function (a, b, c, d) {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -475,7 +443,7 @@ export default {
             type: 'i',
             content: 'format_bold',
             tooltip: 'Bold (Ctrl+B)',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -492,7 +460,7 @@ export default {
             type: 'i',
             content: 'format_italic',
             tooltip: 'Italic (Ctrl+I)',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -509,7 +477,7 @@ export default {
             type: 'i',
             content: 'format_underlined',
             tooltip: 'Underline (Ctrl+U)',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -529,7 +497,7 @@ export default {
             type: 'i',
             content: 'format_align_left',
             tooltip: 'Align Left',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -546,7 +514,7 @@ export default {
             type: 'i',
             content: 'format_align_center',
             tooltip: 'Align Center',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -563,7 +531,7 @@ export default {
             type: 'i',
             content: 'format_align_right',
             tooltip: 'Align Right',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -583,7 +551,7 @@ export default {
             type: 'i',
             content: 'attach_money',
             tooltip: 'Currency Format',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -605,7 +573,7 @@ export default {
             type: 'i',
             content: 'percent',
             tooltip: 'Percent Format',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -627,7 +595,7 @@ export default {
             type: 'i',
             content: 'border_color',
             tooltip: 'Border',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -647,7 +615,7 @@ export default {
             type: 'i',
             content: 'content_copy',
             tooltip: 'Copy (Ctrl+C)',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -659,7 +627,7 @@ export default {
             type: 'i',
             content: 'content_paste',
             tooltip: 'Paste (Ctrl+V)',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -671,7 +639,7 @@ export default {
             type: 'i',
             content: 'delete',
             tooltip: 'Clear Format',
-            onclick: function() {
+            onclick: function () {
               if (!spreadsheetRef.value) return
               const spreadsheet = spreadsheetRef.value.current
               if (spreadsheet && spreadsheet.length > 0) {
@@ -690,7 +658,7 @@ export default {
           {
             content: 'file_download',
             tooltip: 'Xuất Excel',
-            onclick: function() {
+            onclick: function () {
               exportCurrentProject()
             }
           }
@@ -719,7 +687,7 @@ export default {
       try {
         const response = await api.getProject(project.id)
         selectedProject.value = response.data
-        
+
         // Initialize sheets if they don't exist
         if (!selectedProject.value.sheets) {
           selectedProject.value.sheets = {
@@ -729,14 +697,14 @@ export default {
             'Tổng hợp': { headers: [], data: [] }
           }
         }
-        
+
         // Ensure all sheets exist
         sheetNames.forEach(sheetName => {
           if (!selectedProject.value.sheets[sheetName]) {
             selectedProject.value.sheets[sheetName] = { headers: [], data: [] }
           }
         })
-        
+
         currentSheet.value = 'Vật liệu'
       } catch (error) {
         console.error('Error loading project:', error)
@@ -752,7 +720,7 @@ export default {
 
     const saveCurrentSheetData = () => {
       if (!spreadsheetRef.value || !selectedProject.value) return
-      
+
       try {
         const spreadsheet = spreadsheetRef.value.current
         if (spreadsheet && spreadsheet.length > 0) {
@@ -767,10 +735,10 @@ export default {
 
     const saveProject = async () => {
       if (!selectedProject.value) return
-      
+
       // Save current sheet before saving
       saveCurrentSheetData()
-      
+
       try {
         await api.updateProject(selectedProject.value.id, {
           name: selectedProject.value.name,
@@ -788,7 +756,7 @@ export default {
         alert('Vui lòng nhập tên dự án')
         return
       }
-      
+
       try {
         const response = await api.createProject({
           name: newProjectName.value,
@@ -814,38 +782,38 @@ export default {
         alert('Vui lòng nhập tên sheet')
         return
       }
-      
+
       if (!selectedProject.value) {
         alert('Vui lòng chọn dự án trước')
         return
       }
-      
+
       const sheetName = newSheetName.value.trim()
-      
+
       // Check if sheet already exists
       if (selectedProject.value.sheets && selectedProject.value.sheets[sheetName]) {
         alert('Sheet này đã tồn tại')
         return
       }
-      
+
       // Add new sheet with empty data
       if (!selectedProject.value.sheets) {
         selectedProject.value.sheets = {}
       }
-      
+
       selectedProject.value.sheets[sheetName] = { headers: [], data: [] }
       sheetNames.value.push(sheetName)
-      
+
       // Switch to the new sheet
       currentSheet.value = sheetName
-      
+
       showAddSheetModal.value = false
       newSheetName.value = ''
     }
 
     const deleteProject = async (id) => {
       if (!confirm('Bạn có chắc muốn xóa dự án này?')) return
-      
+
       try {
         await api.deleteProject(id)
         projects.value = projects.value.filter(p => p.id !== id)
@@ -864,7 +832,7 @@ export default {
         alert('Lỗi: Không thể truy cập bảng tính')
         return
       }
-      
+
       try {
         jspreadsheet.insertRow()
       } catch (error) {
@@ -879,23 +847,23 @@ export default {
         alert('Lỗi: Không thể truy cập bảng tính')
         return
       }
-      
+
       try {
         const selectedRows = jspreadsheet.getSelectedRows(true)
         if (selectedRows.length === 0) {
           alert('Vui lòng chọn dòng cần xóa')
           return
         }
-        
+
         if (!confirm(`Bạn có chắc muốn xóa ${selectedRows.length} dòng đã chọn?`)) {
           return
         }
-        
+
         // Delete rows in reverse order to maintain indices
         selectedRows.sort((a, b) => b - a).forEach(rowIndex => {
           jspreadsheet.deleteRow(rowIndex)
         })
-        
+
         // Sync deleted data back to project state
         saveCurrentSheetData()
       } catch (error) {
@@ -918,21 +886,21 @@ export default {
     const exportProject = async (projectId) => {
       try {
         const response = await api.exportToExcel(projectId)
-        
+
         // Handle both Blob (from mock) and ArrayBuffer/Blob (from axios)
         let blob
         if (response.data instanceof Blob) {
           blob = response.data
         } else {
           blob = new Blob([response.data], {
-          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-        })
+            type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+          })
         }
-        
+
         const url = window.URL.createObjectURL(blob)
         const link = document.createElement('a')
         link.href = url
-        
+
         const project = projects.value.find(p => p.id === projectId)
         link.download = `${project?.name || 'project'}_${Date.now()}.xlsx`
         document.body.appendChild(link)
@@ -954,17 +922,29 @@ export default {
         'Nhân công': [
           { maHieu: 'N0006', ttNhanCong: 1, tenNhanCong: 'Nhân công bậc 3.5/7', donVi: 'công', khoiLuong: 100, donGia: 250000 }
         ],
+        'Định Mức Xây Dựng': [
+          { stt: 1, maHieuDonGia: 'AA.11111', maHieuVLNCM: '', tenCongTac: 'Phát rừng tạo mặt bằng bằng thủ công - loại I', donVi: '100m2', dinhMuc: '' }
+        ],
         'Máy thi công': [
           { maHieu: 'M0001', ttMay: 1, tenMay: 'Máy trộn bê tông', donVi: 'ca', khoiLuong: 5, donGia: 500000 }
         ]
       }
-      
+
       const wb = XLSX.utils.book_new()
       Object.keys(templateData).forEach(sheetName => {
-        const ws = XLSX.utils.json_to_sheet(templateData[sheetName])
+        const columns = getColumns(sheetName) || []
+        const headers = columns.map(c => c.title)
+        const dataRows = templateData[sheetName].map(row => {
+          return headers.map(h => {
+            const field = getFieldNameFromColumn(h)
+            return row[field] !== undefined ? row[field] : ''
+          })
+        })
+        const wsData = [headers, ...dataRows]
+        const ws = XLSX.utils.aoa_to_sheet(wsData)
         XLSX.utils.book_append_sheet(wb, ws, sheetName)
       })
-      
+
       XLSX.writeFile(wb, 'template_du_toan.xlsx')
     }
 
@@ -1043,7 +1023,7 @@ export default {
   background: white;
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-actions {
@@ -1129,7 +1109,7 @@ export default {
 .project-card:hover {
   border-color: #667eea;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .project-info h3 {
@@ -1158,7 +1138,7 @@ export default {
 }
 
 .btn-icon:hover {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .btn-danger:hover {
@@ -1247,7 +1227,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;

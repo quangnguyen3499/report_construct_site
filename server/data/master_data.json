@@ -1,0 +1,1314 @@
+[
+  {
+    "STT": 1,
+    "MaHieuDonGia": "AA.11111",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại I, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.95
+        }
+      ]
+    }
+  },
+  {
+    "STT": 2,
+    "MaHieuDonGia": "AA.11112",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại I, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.42
+        }
+      ]
+    }
+  },
+  {
+    "STT": 3,
+    "MaHieuDonGia": "AA.11113",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại I, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.64
+        }
+      ]
+    }
+  },
+  {
+    "STT": 4,
+    "MaHieuDonGia": "AA.11121",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.21
+        }
+      ]
+    }
+  },
+  {
+    "STT": 5,
+    "MaHieuDonGia": "AA.11122",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.82
+        }
+      ]
+    }
+  },
+  {
+    "STT": 6,
+    "MaHieuDonGia": "AA.11123",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 2.11
+        }
+      ]
+    }
+  },
+  {
+    "STT": 7,
+    "MaHieuDonGia": "AA.11124",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 2.6
+        }
+      ]
+    }
+  },
+  {
+    "STT": 8,
+    "MaHieuDonGia": "AA.11125",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 3.28
+        }
+      ]
+    }
+  },
+  {
+    "STT": 9,
+    "MaHieuDonGia": "AA.11131",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.39
+        }
+      ]
+    }
+  },
+  {
+    "STT": 10,
+    "MaHieuDonGia": "AA.11132",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.98
+        }
+      ]
+    }
+  },
+  {
+    "STT": 11,
+    "MaHieuDonGia": "AA.11133",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 2.28
+        }
+      ]
+    }
+  },
+  {
+    "STT": 12,
+    "MaHieuDonGia": "AA.11134",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 2.77
+        }
+      ]
+    }
+  },
+  {
+    "STT": 13,
+    "MaHieuDonGia": "AA.11135",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 3.46
+        }
+      ]
+    }
+  },
+  {
+    "STT": 14,
+    "MaHieuDonGia": "AA.11141",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 1.52
+        }
+      ]
+    }
+  },
+  {
+    "STT": 15,
+    "MaHieuDonGia": "AA.11142",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 2.15
+        }
+      ]
+    }
+  },
+  {
+    "STT": 16,
+    "MaHieuDonGia": "AA.11143",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 2.49
+        }
+      ]
+    }
+  },
+  {
+    "STT": 17,
+    "MaHieuDonGia": "AA.11211",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 18,
+    "MaHieuDonGia": "AA.11212",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 19,
+    "MaHieuDonGia": "AA.11213",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 20,
+    "MaHieuDonGia": "AA.11214",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 21,
+    "MaHieuDonGia": "AA.11215",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 22,
+    "MaHieuDonGia": "AA.11231",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 23,
+    "MaHieuDonGia": "AA.11232",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 24,
+    "MaHieuDonGia": "AA.11233",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 25,
+    "MaHieuDonGia": "AA.11234",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 26,
+    "MaHieuDonGia": "AA.11235",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 27,
+    "MaHieuDonGia": "AA.11241",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 28,
+    "MaHieuDonGia": "AA.11242",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 29,
+    "MaHieuDonGia": "AA.11243",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 30,
+    "MaHieuDonGia": "AA.11244",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 31,
+    "MaHieuDonGia": "AA.11245",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 32,
+    "MaHieuDonGia": "AA.11251",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại V, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 33,
+    "MaHieuDonGia": "AA.11252",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại V, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 34,
+    "MaHieuDonGia": "AA.11253",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại V, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 35,
+    "MaHieuDonGia": "AA.11254",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại V, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 36,
+    "MaHieuDonGia": "AA.11255",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại V, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 37,
+    "MaHieuDonGia": "AA.11311",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VI, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 38,
+    "MaHieuDonGia": "AA.11312",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VI, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 39,
+    "MaHieuDonGia": "AA.11313",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VI, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 40,
+    "MaHieuDonGia": "AA.11314",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VI, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 41,
+    "MaHieuDonGia": "AA.11315",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VI, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 42,
+    "MaHieuDonGia": "AA.11321",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VII, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 43,
+    "MaHieuDonGia": "AA.11322",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VII, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 44,
+    "MaHieuDonGia": "AA.11323",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VII, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 45,
+    "MaHieuDonGia": "AA.11324",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VII, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 46,
+    "MaHieuDonGia": "AA.11325",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VII, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 47,
+    "MaHieuDonGia": "AA.11331",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VIII, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 48,
+    "MaHieuDonGia": "AA.11332",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VIII, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 49,
+    "MaHieuDonGia": "AA.11333",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VIII, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 50,
+    "MaHieuDonGia": "AA.11334",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VIII, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 51,
+    "MaHieuDonGia": "AA.11335",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại VIII, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 52,
+    "MaHieuDonGia": "AA.11341",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IX, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 53,
+    "MaHieuDonGia": "AA.11342",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IX, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 54,
+    "MaHieuDonGia": "AA.11343",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IX, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 55,
+    "MaHieuDonGia": "AA.11344",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IX, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  },
+  {
+    "STT": 56,
+    "MaHieuDonGia": "AA.11345",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại IX, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.37
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.04
+        }
+      ]
+    }
+  },
+  {
+    "STT": 57,
+    "MaHieuDonGia": "AA.11411",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại X, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.07
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.015
+        }
+      ]
+    }
+  },
+  {
+    "STT": 58,
+    "MaHieuDonGia": "AA.11412",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại X, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.12
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.02
+        }
+      ]
+    }
+  },
+  {
+    "STT": 59,
+    "MaHieuDonGia": "AA.11413",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại X, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.17
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.025
+        }
+      ]
+    }
+  },
+  {
+    "STT": 60,
+    "MaHieuDonGia": "AA.11414",
+    "TenCongTac": "Phát rừng tạo mặt bằng bằng cơ giới. Phát rừng loại X, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "DonVi": "100m2",
+    "DinhMuc": {
+      "NhanCong": [
+        {
+          "MaHieu": "N0006",
+          "Ten": "Nhân công bậc 3,0/7 - Nhóm 1",
+          "DonVi": "công",
+          "SoLuong": 0.27
+        }
+      ],
+      "MayThiCong": [
+        {
+          "MaHieu": "M101.0502",
+          "Ten": "Máy ủi - công suất: 110 CV",
+          "DonVi": "ca",
+          "SoLuong": 0.03
+        }
+      ]
+    }
+  }
+]

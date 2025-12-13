@@ -51,7 +51,12 @@ const apiService = USE_MOCK_DATA ? mockApi : {
     return api.post('/export', { projectId }, {
       responseType: 'blob'
     })
-  }
+  },
+
+  // Load master data
+  getMasterData() {
+    return api.get('/master-data')
+  },
 }
 
 export default apiService

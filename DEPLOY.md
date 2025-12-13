@@ -53,40 +53,6 @@ VITE_API_BASE_URL=https://your-project.vercel.app/api
    - Thêm secret: `BACKEND_URL` = `https://your-project.vercel.app`
    - Uncomment dòng `VITE_API_BASE_URL` trong `.github/workflows/deploy.yml`
 
-## Deploy Backend lên Railway
-
-### Bước 1: Tạo tài khoản Railway
-1. Truy cập [railway.app](https://railway.app)
-2. Đăng nhập với GitHub
-
-### Bước 2: Deploy
-1. New Project → Deploy from GitHub repo
-2. Chọn repository
-3. Add Service → GitHub Repo
-4. Root Directory: `server`
-5. Build Command: `npm install`
-6. Start Command: `node index.js`
-
-### Bước 3: Lấy URL
-Railway sẽ tự động cung cấp URL public
-
-## Deploy Backend lên Render
-
-### Bước 1: Tạo tài khoản Render
-1. Truy cập [render.com](https://render.com)
-2. Đăng nhập với GitHub
-
-### Bước 2: Deploy
-1. New → Web Service
-2. Connect repository
-3. Settings:
-   - Name: `report-construct-backend`
-   - Root Directory: `server`
-   - Environment: `Node`
-   - Build Command: `npm install`
-   - Start Command: `node index.js`
-4. Deploy
-
 ## Deploy Frontend lên GitHub Pages
 
 Frontend sẽ tự động deploy qua GitHub Actions khi push code lên branch `main`.

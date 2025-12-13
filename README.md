@@ -5,7 +5,7 @@ Hệ thống quản lý và báo cáo dự án xây dựng với giao diện gi�
 ## Tính năng
 
 - 📊 Giao diện Excel-like với grid có thể chỉnh sửa (sử dụng AG-Grid)
-- 📑 Hỗ trợ nhiều sheet/tab: Vật liệu, Nhân công, Máy thi công, Tổng hợp
+- 📑 Hỗ trợ nhiều sheet/tab: Vật liệu, Nhân công, Định Mức Xây Dựng, Máy thi công, Tổng hợp
 - 📝 Nhập liệu theo cấu trúc file Excel mẫu (Định mức xây dựng, File mẫu dự toán)
 - 📈 Thống kê theo dự án, vật liệu, chi phí
 - 💰 Tính toán tự động tổng chi phí, thành tiền

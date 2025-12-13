@@ -1,0 +1,1403 @@
+[
+  {
+    "stt": 1,
+    "priceCode": "AA.11111",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại I, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.95
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 2,
+    "priceCode": "AA.11112",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại I, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.42
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 3,
+    "priceCode": "AA.11113",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại I, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.64
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 4,
+    "priceCode": "AA.11121",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.21
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 5,
+    "priceCode": "AA.11122",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.82
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 6,
+    "priceCode": "AA.11123",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.11
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 7,
+    "priceCode": "AA.11124",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.6
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 8,
+    "priceCode": "AA.11125",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại II, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 3.28
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 9,
+    "priceCode": "AA.11131",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.39
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 10,
+    "priceCode": "AA.11132",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.98
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 11,
+    "priceCode": "AA.11133",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.28
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 12,
+    "priceCode": "AA.11134",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.77
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 13,
+    "priceCode": "AA.11135",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại III, mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 3.46
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 14,
+    "priceCode": "AA.11141",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.52
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 15,
+    "priceCode": "AA.11142",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.15
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 16,
+    "priceCode": "AA.11143",
+    "workName": "Phát rừng tạo mặt bằng bằng thủ công. Phát rừng loại IV, mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.49
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 17,
+    "priceCode": "AA.11211",
+    "workName": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : 0 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.07
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0502",
+        "description": "Máy ủi - công suất: 110 CV",
+        "unit": "ca",
+        "norm": 0.015
+      }
+    ]
+  },
+  {
+    "stt": 18,
+    "priceCode": "AA.11212",
+    "workName": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : <= 2 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.12
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0502",
+        "description": "Máy ủi - công suất: 110 CV",
+        "unit": "ca",
+        "norm": 0.02
+      }
+    ]
+  },
+  {
+    "stt": 19,
+    "priceCode": "AA.11213",
+    "workName": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : <= 3 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.28
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0502",
+        "description": "Máy ủi - công suất: 110 CV",
+        "unit": "ca",
+        "norm": 0.025
+      }
+    ]
+  },
+  {
+    "stt": 20,
+    "priceCode": "AA.11214",
+    "workName": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : <= 5 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.42
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0502",
+        "description": "Máy ủi - công suất: 110 CV",
+        "unit": "ca",
+        "norm": 0.03
+      }
+    ]
+  },
+  {
+    "stt": 21,
+    "priceCode": "AA.11215",
+    "workName": "Phát rừng tạo mặt bằng bằng cơ giới. Mật độ cây tiêu chuẩn trên 100m2 rừng : > 5 cây",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.53
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0502",
+        "description": "Máy ủi - công suất: 110 CV",
+        "unit": "ca",
+        "norm": 0.032
+      }
+    ]
+  },
+  {
+    "stt": 22,
+    "priceCode": "AA.12111",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây <= 20cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.07
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.065
+      }
+    ]
+  },
+  {
+    "stt": 23,
+    "priceCode": "AA.12112",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây <= 30cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.14
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.13
+      }
+    ]
+  },
+  {
+    "stt": 24,
+    "priceCode": "AA.12113",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây <= 40cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.29
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.16
+      }
+    ]
+  },
+  {
+    "stt": 25,
+    "priceCode": "AA.12114",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây <= 50cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.56
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.22
+      }
+    ]
+  },
+  {
+    "stt": 26,
+    "priceCode": "AA.12115",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây <= 60cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.22
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.28
+      }
+    ]
+  },
+  {
+    "stt": 27,
+    "priceCode": "AA.12116",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây <= 70cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.92
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.36
+      }
+    ]
+  },
+  {
+    "stt": 28,
+    "priceCode": "AA.12117",
+    "workName": "Chặt cây ở địa hình bằng phẳng bằng máy cưa, đường kính gốc cây > 70cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 5.51
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.47
+      }
+    ]
+  },
+  {
+    "stt": 29,
+    "priceCode": "AA.12121",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây <= 20cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.08
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.075
+      }
+    ]
+  },
+  {
+    "stt": 30,
+    "priceCode": "AA.12122",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây <= 30cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.16
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.15
+      }
+    ]
+  },
+  {
+    "stt": 31,
+    "priceCode": "AA.12123",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây <= 40cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.33
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.19
+      }
+    ]
+  },
+  {
+    "stt": 32,
+    "priceCode": "AA.12124",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây <= 50cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.61
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.26
+      }
+    ]
+  },
+  {
+    "stt": 33,
+    "priceCode": "AA.12125",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây <= 60cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.7
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.33
+      }
+    ]
+  },
+  {
+    "stt": 34,
+    "priceCode": "AA.12126",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây <= 70cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 3.65
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.42
+      }
+    ]
+  },
+  {
+    "stt": 35,
+    "priceCode": "AA.12127",
+    "workName": "Chặt cây ở sườn dốc bằng máy cưa, đường kính gốc cây > 70cm",
+    "unit": "cây",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 6
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.3801",
+        "description": "Máy cưa gỗ cầm tay - công suất: 1,3 kW",
+        "unit": "ca",
+        "norm": 0.55
+      }
+    ]
+  },
+  {
+    "stt": 36,
+    "priceCode": "AA.13111",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc <= 20cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.15
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 37,
+    "priceCode": "AA.13112",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc <= 30cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.28
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 38,
+    "priceCode": "AA.13113",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc <= 40cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.53
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 39,
+    "priceCode": "AA.13114",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc <= 50cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.01
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 40,
+    "priceCode": "AA.13115",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc <= 60cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.43
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 41,
+    "priceCode": "AA.13116",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc <= 70cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 4.56
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 42,
+    "priceCode": "AA.13117",
+    "workName": "Đào gốc cây bằng thủ công, đường kính gốc > 70cm",
+    "unit": "gốc",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 8.2
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 43,
+    "priceCode": "AA.13211",
+    "workName": "Đào bụi cây bằng thủ công, đào bụi dừa nước, đường kính <= 30cm",
+    "unit": "bụi",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.4
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 44,
+    "priceCode": "AA.13212",
+    "workName": "Đào bụi cây bằng thủ công, đào bụi dừa nước, đường kính > 30cm",
+    "unit": "bụi",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.56
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 45,
+    "priceCode": "AA.13221",
+    "workName": "Đào bụi cây bằng thủ công, đào bụi tre, đường kính <= 50cm",
+    "unit": "bụi",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.79
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 46,
+    "priceCode": "AA.13222",
+    "workName": "Đào bụi cây bằng thủ công, đào bụi tre, đường kính <= 80cm",
+    "unit": "bụi",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 5.01
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 47,
+    "priceCode": "AA.13223",
+    "workName": "Đào bụi cây bằng thủ công, đào bụi tre, đường kính > 80cm",
+    "unit": "bụi",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 9.02
+      }
+    ],
+    "materials": [],
+    "machinery": []
+  },
+  {
+    "stt": 48,
+    "priceCode": "AA.22111",
+    "workName": "Phá dỡ kết cấu bê tông có cốt thép bằng búa căn khí nén 3m3/ph",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.6
+      }
+    ],
+    "materials": [
+      {
+        "code": "V00515",
+        "description": "Que hàn",
+        "unit": "kg",
+        "norm": 0.96
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M112.4002_TT11",
+        "description": "Biến thế hàn xoay chiều - công suất: 23 kW",
+        "unit": "ca",
+        "norm": 0.23
+      },
+      {
+        "code": "M108.0302_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 360 m3/h",
+        "unit": "ca",
+        "norm": 0.15
+      },
+      {
+        "code": "M112.2902",
+        "description": "Búa căn khí nén (chưa tính khí nén) - tiêu hao khí nén: 3 m3/ph",
+        "unit": "ca",
+        "norm": 0.3
+      }
+    ]
+  },
+  {
+    "stt": 49,
+    "priceCode": "AA.22112",
+    "workName": "Phá dỡ kết cấu bê tông không cốt thép bằng búa căn khí nén 3m3/ph",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.5
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M108.0302_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 360 m3/h",
+        "unit": "ca",
+        "norm": 0.125
+      },
+      {
+        "code": "M112.2902",
+        "description": "Búa căn khí nén (chưa tính khí nén) - tiêu hao khí nén: 3 m3/ph",
+        "unit": "ca",
+        "norm": 0.25
+      }
+    ]
+  },
+  {
+    "stt": 50,
+    "priceCode": "AA.22121",
+    "workName": "Phá dỡ kết cấu gạch đá bằng búa căn khí nén 3m3/ph",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.2
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M108.0302_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 360 m3/h",
+        "unit": "ca",
+        "norm": 0.075
+      },
+      {
+        "code": "M112.2902",
+        "description": "Búa căn khí nén (chưa tính khí nén) - tiêu hao khí nén: 3 m3/ph",
+        "unit": "ca",
+        "norm": 0.15
+      }
+    ]
+  },
+  {
+    "stt": 51,
+    "priceCode": "AA.22211",
+    "workName": "Phá dỡ kết cấu bê tông có cốt thép bằng máy khoan bê tông 1,5kW",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.02
+      }
+    ],
+    "materials": [
+      {
+        "code": "V00515",
+        "description": "Que hàn",
+        "unit": "kg",
+        "norm": 0.96
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M112.4002_TT11",
+        "description": "Biến thế hàn xoay chiều - công suất: 23 kW",
+        "unit": "ca",
+        "norm": 0.23
+      },
+      {
+        "code": "M112.1703_TT11",
+        "description": "Máy khoan bê tông cầm tay - công suất: 1,50 kW",
+        "unit": "ca",
+        "norm": 1.05
+      }
+    ]
+  },
+  {
+    "stt": 52,
+    "priceCode": "AA.22212",
+    "workName": "Phá dỡ kết cấu bê tông không cốt thép bằng máy khoan bê tông 1,5kW",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.88
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.1703_TT11",
+        "description": "Máy khoan bê tông cầm tay - công suất: 1,50 kW",
+        "unit": "ca",
+        "norm": 0.72
+      }
+    ]
+  },
+  {
+    "stt": 53,
+    "priceCode": "AA.22221",
+    "workName": "Phá dỡ kết cấu gạch đá bằng máy khoan bê tông 1,5kW",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.65
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M112.1703_TT11",
+        "description": "Máy khoan bê tông cầm tay - công suất: 1,50 kW",
+        "unit": "ca",
+        "norm": 0.65
+      }
+    ]
+  },
+  {
+    "stt": 54,
+    "priceCode": "AA.22310",
+    "workName": "Phá dỡ kết cấu bê tông bằng máy đào 1,25m3 gắn đầu búa thủy lực",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.013
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0115",
+        "description": "Máy đào 1,25 m3 gắn đầu búa thủy lực/hàm kẹp",
+        "unit": "ca",
+        "norm": 0.022
+      }
+    ]
+  },
+  {
+    "stt": 55,
+    "priceCode": "AA.22320",
+    "workName": "Phá dỡ kết cấu gạch bằng máy đào 1,25m3 gắn đầu búa thủy lực",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.005
+      }
+    ],
+    "materials": [],
+    "machinery": [
+      {
+        "code": "M101.0115",
+        "description": "Máy đào 1,25 m3 gắn đầu búa thủy lực/hàm kẹp",
+        "unit": "ca",
+        "norm": 0.008
+      }
+    ]
+  },
+  {
+    "stt": 56,
+    "priceCode": "AA.22410",
+    "workName": "Đập đầu cọc bê tông các loại bằng búa căn khí nén 3m3/ph, trên cạn",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 0.72
+      }
+    ],
+    "materials": [
+      {
+        "code": "V00515",
+        "description": "Que hàn",
+        "unit": "kg",
+        "norm": 0.96
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M112.4002_TT11",
+        "description": "Biến thế hàn xoay chiều - công suất: 23 kW",
+        "unit": "ca",
+        "norm": 0.23
+      },
+      {
+        "code": "M102.0202_TT11",
+        "description": "Cần cẩu bánh hơi - sức nâng: 16 T",
+        "unit": "ca",
+        "norm": 0.111
+      },
+      {
+        "code": "M112.2902",
+        "description": "Búa căn khí nén (chưa tính khí nén) - tiêu hao khí nén: 3 m3/ph",
+        "unit": "ca",
+        "norm": 0.36
+      },
+      {
+        "code": "M108.0302_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 360 m3/h",
+        "unit": "ca",
+        "norm": 0.18
+      }
+    ]
+  },
+  {
+    "stt": 57,
+    "priceCode": "AA.22420",
+    "workName": "Đập đầu cọc bê tông các loại bằng búa căn khí nén 3m3/ph, dưới nước",
+    "unit": "m3",
+    "labor": [
+      {
+        "code": "N0006",
+        "description": "Nhân công bậc 3,0/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.05
+      }
+    ],
+    "materials": [
+      {
+        "code": "V00515",
+        "description": "Que hàn",
+        "unit": "kg",
+        "norm": 0.96
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M102.0202_TT11",
+        "description": "Cần cẩu bánh hơi - sức nâng: 16 T",
+        "unit": "ca",
+        "norm": 0.133
+      },
+      {
+        "code": "M109.0101_TT11",
+        "description": "Sà lan công trình - trọng tải: 200 T",
+        "unit": "ca",
+        "norm": 0.05
+      },
+      {
+        "code": "M109.0702_TT11",
+        "description": "Tầu kéo và phục vụ thi công thủy (làm neo, cấp dầu,...) - công suất: 150 CV",
+        "unit": "ca",
+        "norm": 0.024
+      },
+      {
+        "code": "M112.2902",
+        "description": "Búa căn khí nén (chưa tính khí nén) - tiêu hao khí nén: 3 m3/ph",
+        "unit": "ca",
+        "norm": 0.42
+      },
+      {
+        "code": "M108.0302_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 360 m3/h",
+        "unit": "ca",
+        "norm": 0.21
+      },
+      {
+        "code": "M112.4002_TT11",
+        "description": "Biến thế hàn xoay chiều - công suất: 23 kW",
+        "unit": "ca",
+        "norm": 0.23
+      }
+    ]
+  },
+  {
+    "stt": 58,
+    "priceCode": "AA.22511",
+    "workName": "Cào bóc lớp mặt đường bê tông Asphalt bằng máy cào bóc Wirtgen C1000, chiều dày lớp bóc <= 3cm",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0009",
+        "description": "Nhân công bậc 3,5/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 1.78
+      }
+    ],
+    "materials": [
+      {
+        "code": "V82995",
+        "description": "Răng cào hợp kim",
+        "unit": "bộ",
+        "norm": 0.07
+      },
+      {
+        "code": "V00750",
+        "description": "Vật liệu khác",
+        "unit": "%",
+        "norm": 2
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M106.0103",
+        "description": "Ô tô vận tải thùng - trọng tải: 2,5 T",
+        "unit": "ca",
+        "norm": 0.175
+      },
+      {
+        "code": "M108.0303_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 420 m3/h",
+        "unit": "ca",
+        "norm": 0.175
+      },
+      {
+        "code": "M106.0203_TT11",
+        "description": "Ô tô tự đổ - trọng tải: 7 T",
+        "unit": "ca",
+        "norm": 0.263
+      },
+      {
+        "code": "M105.0501_TT11",
+        "description": "Máy cào bóc đường Wirtgen - 1000C",
+        "unit": "ca",
+        "norm": 0.175
+      },
+      {
+        "code": "M106.0502",
+        "description": "Ô tô tưới nước - dung tích: 5 m3",
+        "unit": "ca",
+        "norm": 0.175
+      }
+    ]
+  },
+  {
+    "stt": 59,
+    "priceCode": "AA.22512",
+    "workName": "Cào bóc lớp mặt đường bê tông Asphalt bằng máy cào bóc Wirtgen C1000, chiều dày lớp bóc <= 4cm",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0009",
+        "description": "Nhân công bậc 3,5/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.08
+      }
+    ],
+    "materials": [
+      {
+        "code": "V82995",
+        "description": "Răng cào hợp kim",
+        "unit": "bộ",
+        "norm": 0.09
+      },
+      {
+        "code": "V00750",
+        "description": "Vật liệu khác",
+        "unit": "%",
+        "norm": 2
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M106.0103",
+        "description": "Ô tô vận tải thùng - trọng tải: 2,5 T",
+        "unit": "ca",
+        "norm": 0.192
+      },
+      {
+        "code": "M108.0303_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 420 m3/h",
+        "unit": "ca",
+        "norm": 0.192
+      },
+      {
+        "code": "M106.0203_TT11",
+        "description": "Ô tô tự đổ - trọng tải: 7 T",
+        "unit": "ca",
+        "norm": 0.288
+      },
+      {
+        "code": "M105.0501_TT11",
+        "description": "Máy cào bóc đường Wirtgen - 1000C",
+        "unit": "ca",
+        "norm": 0.192
+      },
+      {
+        "code": "M106.0502",
+        "description": "Ô tô tưới nước - dung tích: 5 m3",
+        "unit": "ca",
+        "norm": 0.192
+      }
+    ]
+  },
+  {
+    "stt": 60,
+    "priceCode": "AA.22513",
+    "workName": "Cào bóc lớp mặt đường bê tông Asphalt bằng máy cào bóc Wirtgen C1000, chiều dày lớp bóc <= 5cm",
+    "unit": "100m2",
+    "labor": [
+      {
+        "code": "N0009",
+        "description": "Nhân công bậc 3,5/7 - Nhóm 1",
+        "unit": "công",
+        "norm": 2.42
+      }
+    ],
+    "materials": [
+      {
+        "code": "V82995",
+        "description": "Răng cào hợp kim",
+        "unit": "bộ",
+        "norm": 0.13
+      },
+      {
+        "code": "V00750",
+        "description": "Vật liệu khác",
+        "unit": "%",
+        "norm": 2
+      }
+    ],
+    "machinery": [
+      {
+        "code": "M106.0103",
+        "description": "Ô tô vận tải thùng - trọng tải: 2,5 T",
+        "unit": "ca",
+        "norm": 0.212
+      },
+      {
+        "code": "M108.0303_TT11",
+        "description": "Máy nén khí, động cơ diezel - năng suất: 420 m3/h",
+        "unit": "ca",
+        "norm": 0.212
+      },
+      {
+        "code": "M106.0203_TT11",
+        "description": "Ô tô tự đổ - trọng tải: 7 T",
+        "unit": "ca",
+        "norm": 0.318
+      },
+      {
+        "code": "M105.0501_TT11",
+        "description": "Máy cào bóc đường Wirtgen - 1000C",
+        "unit": "ca",
+        "norm": 0.212
+      },
+      {
+        "code": "M106.0502",
+        "description": "Ô tô tưới nước - dung tích: 5 m3",
+        "unit": "ca",
+        "norm": 0.212
+      }
+    ]
+  }
+]

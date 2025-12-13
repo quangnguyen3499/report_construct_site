@@ -3,8 +3,9 @@ import json
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from datetime import datetime
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
+from routes.masterData import master_data_bp
 
 # -------------------------
 # CONFIG
@@ -17,6 +18,10 @@ PORT = int(os.environ.get("PORT", 3001))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 PROJECTS_FILE = os.path.join(DATA_DIR, "projects.json")
+
+
+# Register the blueprint for master data
+app.register_blueprint(master_data_bp)
 
 
 # -------------------------
@@ -82,6 +87,7 @@ def create_project():
             {
                 "Vật liệu": {"headers": [], "data": []},
                 "Nhân công": {"headers": [], "data": []},
+                "Định Mức Xây Dựng": {"headers": ["STT", "Mã hiệu đơn giá", "Mã hiệu VL, NC, M", "Tên công tác", "Đơn vị", "Định mức", "Loại"], "data": []},
                 "Máy thi công": {"headers": [], "data": []},
                 "Tổng hợp": {"headers": [], "data": []},
             },
@@ -184,6 +190,20 @@ def statistics():
         )
 
     return jsonify(result)
+
+
+@app.get("/api/master-sheets")
+def master_sheets():
+    """Return list of sheets available in the server database Excel file."""
+    excel_path = os.path.join(DATA_DIR, "database.xlsx")
+    if not os.path.exists(excel_path):
+        return jsonify({"sheets": []})
+
+    try:
+        wb = load_workbook(excel_path, read_only=True)
+        return jsonify({"sheets": wb.sheetnames})
+    except Exception:
+        return jsonify({"sheets": []})
 
 
 # -------------------------
